@@ -1,7 +1,6 @@
-package com.crm.clientfieldsmanagement.controller;
+package com.crm.clientfieldsmanagement.controller.advice;
 
 import com.crm.clientfieldsmanagement.exception.ClientFieldNotFoundException;
-import lombok.extern.log4j.Log4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -9,12 +8,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
-public class ClientFieldsNotFoundAdvice {
+public class ExceptionAdvice {
 
-    @ExceptionHandler(ClientFieldNotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    public @ResponseBody String notFoundHandler(ClientFieldNotFoundException ex) {
-        return ex.getMessage();
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public @ResponseBody
+    String notFoundHandler(Exception ex) {
+        return "Erro inesperado";
     }
 
 }
