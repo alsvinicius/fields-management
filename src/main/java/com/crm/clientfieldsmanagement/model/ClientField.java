@@ -15,9 +15,9 @@ public class ClientField {
     private String idField;
     private String name;
     private Boolean required;
-    private long length;
+    private Long length;
     private String maskRegex;
     private String placeholder;
-    private int position;
+    private Integer position;
 
 }

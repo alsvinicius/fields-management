@@ -3,6 +3,8 @@ package com.crm.clientfieldsmanagement.service;
 import com.crm.clientfieldsmanagement.exception.ClientFieldNotFoundException;
 import com.crm.clientfieldsmanagement.model.ClientField;
 import com.crm.clientfieldsmanagement.repository.ClientFieldsRepository;
+import com.crm.clientfieldsmanagement.util.POJOUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,9 +31,9 @@ public class ClientFieldsService {
     }
 
     public ClientField update(String fieldId, ClientField newField) {
-        ClientField oldField = findOne(fieldId);
-        ClientField updatedField = ClientField.builder().build(); //TODO merge objects
-        return repository.save(updatedField);
+        ClientField field = findOne(fieldId);
+        BeanUtils.copyProperties(newField, field, POJOUtils.getNullPropertyNames(newField));
+        return repository.save(field);
     }
 
     public void delete(String fieldId) {
