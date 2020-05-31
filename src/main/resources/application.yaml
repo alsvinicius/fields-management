@@ -1,0 +1,20 @@
+#mongodb config
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27000
+      database: fields
+
+#management config
+management:
+  server:
+    port: 10000
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+#server config
+server:
+  port: 10000
