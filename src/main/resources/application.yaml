@@ -5,6 +5,11 @@ spring:
       host: 192.168.200.20
       port: 27017
       database: fields
+    kafka:
+      producer:
+        bootstrap-servers: 192.168.200.30:9092
+        key-serializer: org.apache.kafka.common.serialization.StringSerializer
+        value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
 #management config
 management:
