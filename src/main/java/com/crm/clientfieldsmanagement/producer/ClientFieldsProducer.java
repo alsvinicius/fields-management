@@ -1,14 +1,12 @@
 package com.crm.clientfieldsmanagement.producer;
 
-import com.crm.clientfieldsmanagement.model.ClientField;
-import com.crm.clientfieldsmanagement.service.ClientFieldsService;
+import com.crm.clientfieldsmanagement.entity.ClientFieldEntity;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
-import org.springframework.messaging.support.GenericMessage;
 import org.springframework.stereotype.Component;
 import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
@@ -23,11 +21,11 @@ public class ClientFieldsProducer {
 
     private static final Logger LOGGER = getLogger(ClientFieldsProducer.class.getName());
 
-    public void sendMessage(String operation, ClientField clientField) {
+    public void sendMessage(String operation, ClientFieldEntity clientFieldEntity) {
         ObjectMapper mapper = new ObjectMapper();
         String json;
         try {
-            json = mapper.writeValueAsString(clientField);
+            json = mapper.writeValueAsString(clientFieldEntity);
         } catch (JsonProcessingException e) {
             LOGGER.error(e);
             return;

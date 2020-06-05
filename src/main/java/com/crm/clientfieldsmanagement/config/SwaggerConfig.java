@@ -1,11 +1,9 @@
 package com.crm.clientfieldsmanagement.config;
 
 import com.crm.clientfieldsmanagement.controller.ClientFieldsController;
-import com.crm.clientfieldsmanagement.model.ClientField;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;

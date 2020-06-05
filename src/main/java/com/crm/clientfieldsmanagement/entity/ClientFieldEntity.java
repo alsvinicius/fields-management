@@ -1,15 +1,12 @@
-package com.crm.clientfieldsmanagement.model;
+package com.crm.clientfieldsmanagement.entity;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import jdk.nashorn.internal.objects.annotations.Constructor;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("field")
-@JsonInclude(JsonInclude.Include.NON_NULL)
 @Getter @Setter @Builder @NoArgsConstructor @AllArgsConstructor
-public class ClientField {
+public class ClientFieldEntity {
 
     @Id
     private String idField;
