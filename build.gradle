@@ -33,6 +33,8 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+
+	testCompile group: 'pl.pojo', name: 'pojo-tester', version: '0.7.6'
 }
 
 test {
