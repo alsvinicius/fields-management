@@ -1,12 +1,9 @@
-package service;
+package service.implementation;
 
-import com.crm.clientfieldsmanagement.controller.ClientFieldsController;
-import com.crm.clientfieldsmanagement.dto.ClientFieldDTO;
 import com.crm.clientfieldsmanagement.entity.ClientFieldEntity;
 import com.crm.clientfieldsmanagement.producer.ClientFieldsProducer;
 import com.crm.clientfieldsmanagement.repository.ClientFieldsRepository;
-import com.crm.clientfieldsmanagement.service.ClientFieldsService;
-import jdk.nashorn.internal.runtime.options.Option;
+import com.crm.clientfieldsmanagement.service.implementation.ClientFieldsServiceImpl;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -17,7 +14,6 @@ import org.springframework.test.util.ReflectionTestUtils;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -29,9 +25,9 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class ClientFieldsServiceTest {
+public class ClientFieldsServiceTestImplTest {
 
-    private ClientFieldsService service;
+    private ClientFieldsServiceImpl service;
 
     private PodamFactory factory = new PodamFactoryImpl();
 
@@ -43,7 +39,7 @@ public class ClientFieldsServiceTest {
             @Mock ClientFieldsRepository repository,
             @Mock ClientFieldsProducer producer
     ) {
-        this.service = new ClientFieldsService();
+        this.service = new ClientFieldsServiceImpl();
 
         fieldEntity = factory.manufacturePojo(ClientFieldEntity.class);
         fieldList = factory.manufacturePojo(ArrayList.class, ClientFieldEntity.class);
