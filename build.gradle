@@ -35,6 +35,9 @@ dependencies {
 	}
 
 	testCompile group: 'pl.pojo', name: 'pojo-tester', version: '0.7.6'
+	testCompile group: 'org.mockito', name: 'mockito-core', version: '3.3.3'
+	testCompile group: 'org.powermock', name: 'powermock-api-mockito2', version: '2.0.7'
+	testCompile group: 'uk.co.jemos.podam', name: 'podam', version: '7.2.3.RELEASE'
 }
 
 test {

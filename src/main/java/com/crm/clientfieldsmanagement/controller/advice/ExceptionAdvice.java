@@ -12,7 +12,7 @@ public class ExceptionAdvice {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public @ResponseBody
-    String notFoundHandler(Exception ex) {
+    String exceptionHandler(Exception ex) {
         return "Erro inesperado " + ex.getMessage();
     }
 

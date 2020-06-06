@@ -27,18 +27,18 @@ public class ClientFieldsController {
         return service.findAll();
     }
 
-    @PostMapping(produces = RESPONSE_TYPE)
-    @ResponseStatus(HttpStatus.CREATED)
-    public @ResponseBody
-    ClientFieldEntity create(@RequestBody ClientFieldDTO field) {
-        return service.create(field);
-    }
-
     @GetMapping(value = "/{fieldId}", produces = RESPONSE_TYPE)
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody
     ClientFieldEntity findOne(@PathVariable String fieldId) {
         return service.findOne(fieldId);
+    }
+
+    @PostMapping(produces = RESPONSE_TYPE)
+    @ResponseStatus(HttpStatus.CREATED)
+    public @ResponseBody
+    ClientFieldEntity create(@RequestBody ClientFieldDTO field) {
+        return service.create(field);
     }
 
     @PatchMapping(value = "/{fieldId}", produces = RESPONSE_TYPE)

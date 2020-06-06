@@ -19,10 +19,11 @@ public class ClientFieldsProducer {
     @Autowired
     private KafkaTemplate<String, String> template;
 
+    private final ObjectMapper mapper = new ObjectMapper();
+
     private static final Logger LOGGER = getLogger(ClientFieldsProducer.class.getName());
 
     public void sendMessage(String operation, ClientFieldEntity clientFieldEntity) {
-        ObjectMapper mapper = new ObjectMapper();
         String json;
         try {
             json = mapper.writeValueAsString(clientFieldEntity);
