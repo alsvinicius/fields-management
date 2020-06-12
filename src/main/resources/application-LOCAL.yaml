@@ -20,6 +20,12 @@ management:
       exposure:
         include: "*"
 
+logging:
+  level:
+    org:
+      springframework:
+        web: INFO
+
 #server config
 server:
   port: 10000
