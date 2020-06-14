@@ -1,0 +1,31 @@
+#mongodb config
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: fields
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+#management config
+management:
+  server:
+    port: 10000
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  level:
+    org:
+      springframework:
+        web: INFO
+
+#server config
+server:
+  port: 10000
