@@ -1,6 +1,15 @@
 version: '2'
 
 services:
+  front:
+    image: 'alsvinicius/fields-front-end'
+    ports:
+      - '3001:80'
+    logging:
+      driver: json-file
+    networks:
+      clients-fields-network:
+          ipv4_address: 192.168.200.50
   zookeeper:
     image: 'bitnami/zookeeper:3'
     ports:
@@ -57,6 +66,8 @@ volumes:
   mongo_data:
     driver: local
   api_data:
+    driver: local
+  front_data:
     driver: local
     
 networks:

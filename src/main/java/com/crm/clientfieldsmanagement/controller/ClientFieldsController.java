@@ -21,6 +21,7 @@ public class ClientFieldsController {
     private static final String RESPONSE_TYPE = "application/json";
 
     @GetMapping(produces = RESPONSE_TYPE)
+    @CrossOrigin(origins = "*", allowCredentials = "true")
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody
     List<ClientFieldEntity> findAll() {
@@ -28,6 +29,7 @@ public class ClientFieldsController {
     }
 
     @GetMapping(value = "/{fieldId}", produces = RESPONSE_TYPE)
+    @CrossOrigin(origins = "*", allowCredentials = "true")
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody
     ClientFieldEntity findOne(@PathVariable String fieldId) {
@@ -35,6 +37,7 @@ public class ClientFieldsController {
     }
 
     @PostMapping(produces = RESPONSE_TYPE)
+    @CrossOrigin(origins = "*", allowCredentials = "true")
     @ResponseStatus(HttpStatus.CREATED)
     public @ResponseBody
     ClientFieldEntity create(@RequestBody ClientFieldDTO field) {
@@ -42,6 +45,7 @@ public class ClientFieldsController {
     }
 
     @PatchMapping(value = "/{fieldId}", produces = RESPONSE_TYPE)
+    @CrossOrigin(origins = "*", allowCredentials = "true")
     @ResponseStatus(HttpStatus.OK)
     public @ResponseBody
     ClientFieldEntity update(
@@ -52,6 +56,7 @@ public class ClientFieldsController {
     }
 
     @DeleteMapping("/{fieldId}")
+    @CrossOrigin(origins = "*", allowCredentials = "true")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable String fieldId) {
         service.delete(fieldId);
