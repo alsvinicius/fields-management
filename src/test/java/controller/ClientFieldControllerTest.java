@@ -4,7 +4,6 @@ import com.crm.clientfieldsmanagement.controller.ClientFieldsController;
 import com.crm.clientfieldsmanagement.dto.ClientFieldDTO;
 import com.crm.clientfieldsmanagement.entity.ClientFieldEntity;
 import com.crm.clientfieldsmanagement.service.ClientFieldsService;
-import com.crm.clientfieldsmanagement.service.implementation.ClientFieldsServiceImpl;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -18,9 +17,7 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.apache.logging.log4j.LogManager.getLogger;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
