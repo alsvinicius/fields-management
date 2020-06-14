@@ -1,6 +1,17 @@
 version: '2'
 
 services:
+  consumer:
+    image: 'alsvinicius/clients-fields-consumer'
+    ports:
+      - '21000:20000'
+    volumes:
+      - 'consumer_data/alsvinicius'
+    logging:
+      driver: json-file
+    networks:
+      clients-fields-network:
+          ipv4_address: 192.168.200.60
   front:
     image: 'alsvinicius/fields-front-end'
     ports:
@@ -29,7 +40,7 @@ services:
       - 'kafka_data:/alsvinicius'
     environment:
       - KAFKA_CFG_ZOOKEEPER_CONNECT=192.168.200.40:2181
-      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://192.168.200.30:9092
       - ALLOW_PLAINTEXT_LISTENER=yes
     depends_on:
       - zookeeper
@@ -67,6 +78,8 @@ volumes:
   api_data:
     driver: local
   front_data:
+    driver: local
+  consumer_data:
     driver: local
     
 networks:
